@@ -12,8 +12,10 @@ class ChatScreen extends StatelessWidget {
             .collection('chats/E8XAW2ZGzXnfhSigvF7w/messages')
             .snapshots(),
         builder: (ctx, streamSnapshots) {
-          if(streamSnapshots.connectionState == ConnectionState.waiting){
-            return const Center(child: CircularProgressIndicator(),);
+          if (streamSnapshots.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           }
           final documents = streamSnapshots.data!.docs;
           return ListView.builder(
@@ -27,7 +29,11 @@ class ChatScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          FirebaseFirestore.instance
+              .collection('chats/E8XAW2ZGzXnfhSigvF7w/messages')
+              .add({'text': 'Plus button chat'});
+        },
       ),
     );
   }
