@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 
@@ -8,9 +9,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  )
-      .whenComplete(() => print('Firebase initialized!'))
-      .catchError((e) => print(" Error : ${e.toString()}"));
+  ).whenComplete(() {
+    if (kDebugMode) {
+      print('Firebase initialized!');
+    }
+  }).catchError((e) {
+    if (kDebugMode) {
+      print(" Error : ${e.toString()}");
+    }
+  });
   runApp(const MyApp());
 }
 
@@ -31,7 +38,7 @@ class MyApp extends StatelessWidget {
               textTheme: ButtonTextTheme.primary,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)))),
-      home: AuthScreen(),
+      home: const AuthScreen(),
       routes: {},
     );
   }
