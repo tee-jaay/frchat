@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "609826742099",
+    "project_id": "frchat-6d424",
+    "storage_bucket": "frchat-6d424.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609826742099:android:a0ce46f225558a78924ba6",
+        "android_client_info": {
+          "package_name": "me.teejaay.frbase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609826742099-gm7gtsutpt5srkl55sc9tpciibqru8mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs_wm4V-jyWCoznEG561gHM-BByHleGCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609826742099-gm7gtsutpt5srkl55sc9tpciibqru8mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609826742099:android:537169b94c897a7c924ba6",
+        "android_client_info": {
+          "package_name": "me.teejaay.frchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609826742099-gm7gtsutpt5srkl55sc9tpciibqru8mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs_wm4V-jyWCoznEG561gHM-BByHleGCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609826742099-gm7gtsutpt5srkl55sc9tpciibqru8mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
