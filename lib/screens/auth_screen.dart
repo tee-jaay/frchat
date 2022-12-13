@@ -19,21 +19,29 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _submitAuthForm(
       String email, String password, String username, bool isLogin) async {
-    var authAttemptResponse;
+    var response;
     try {
       setState(() {
         _isLoading = true;
       });
       if (isLogin) {
-        authAttemptResponse = await _auth.signInWithEmailAndPassword(
+        response = await _auth.signInWithEmailAndPassword(
           email: email,
           password: password,
         );
       } else {
-        authAttemptResponse = await _auth.createUserWithEmailAndPassword(
+        response = await _auth.createUserWithEmailAndPassword(
           email: email,
           password: password,
         );
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(response.user.uid)
+            .set({
+          'username': username,
+          'email': email,
+          // 'image_url': url,
+        });
       }
     } on PlatformException catch (err) {
       setState(() {
