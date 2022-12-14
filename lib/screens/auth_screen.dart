@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,8 +20,8 @@ class _AuthScreenState extends State<AuthScreen> {
   final _auth = FirebaseAuth.instance;
   var _isLoading = false;
 
-  void _submitAuthForm(
-      String email, String password, String username, bool isLogin) async {
+  void _submitAuthForm(String email, String password, String username,
+      File image, bool isLogin) async {
     var response;
     try {
       setState(() {
@@ -34,13 +37,25 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
+
+        // image upload
+        final ref = await FirebaseStorage.instance
+            .ref()
+            .child('user_image')
+            .child(response.user.uid + '.jpg');
+
+        await ref.putFile(image);
+
+        final url = await ref.getDownloadURL();
+        // image upload
+
         await FirebaseFirestore.instance
             .collection('users')
             .doc(response.user.uid)
             .set({
           'username': username,
           'email': email,
-          // 'image_url': url,
+          'image_url': url,
         });
       }
     } on PlatformException catch (err) {
@@ -69,10 +84,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: AuthForm(
-        _submitAuthForm,
-        _isLoading
-      ),
+      body: AuthForm(_submitAuthForm, _isLoading),
     );
   }
 }
