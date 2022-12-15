@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:609826742099:android:a0ce46f225558a78924ba6",
+        "mobilesdk_app_id": "1:609826742099:android:b37a9ae79451bc46924ba6",
         "android_client_info": {
           "package_name": "me.teejaay.frbase"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "609826742099-gm7gtsutpt5srkl55sc9tpciibqru8mk.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "609826742099-pefak4h2nukpu2p8cunnn9mcd81v38t3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "me.teejaay.frbase"
+              }
             }
           ]
         }
@@ -58,6 +65,13 @@
             {
               "client_id": "609826742099-gm7gtsutpt5srkl55sc9tpciibqru8mk.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "609826742099-pefak4h2nukpu2p8cunnn9mcd81v38t3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "me.teejaay.frbase"
+              }
             }
           ]
         }

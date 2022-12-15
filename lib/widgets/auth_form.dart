@@ -63,6 +63,8 @@ class _AuthFormState extends State<AuthForm> {
                 children: [
                   if (!_isLogin) UserImagePicker(_pickedImageFromPicker),
                   TextFormField(
+                    autocorrect: false,
+                    textCapitalization: TextCapitalization.none,
                     key: const ValueKey('email'),
                     onSaved: (val) {
                       _userEmail = val!;
@@ -80,6 +82,8 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   if (!_isLogin)
                     TextFormField(
+                      autocorrect: true,
+                      textCapitalization: TextCapitalization.words,
                       key: const ValueKey('username'),
                       onSaved: (val) {
                         _userName = val!;

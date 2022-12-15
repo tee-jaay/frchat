@@ -1,11 +1,25 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import '../chat/new_message.dart';
 import '../chat/messages.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    final fbm = FirebaseMessaging.instance;
+    fbm.requestPermission();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +28,7 @@ class ChatScreen extends StatelessWidget {
         title: const Text('Chat Loby'),
         actions: [
           DropdownButton(
+            underline: Container(),
             iconEnabledColor: Colors.white,
             iconDisabledColor: Colors.grey,
             icon: const Icon(Icons.more_vert),
