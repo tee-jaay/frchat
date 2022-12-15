@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../chat/new_message.dart';
@@ -19,6 +20,19 @@ class _ChatScreenState extends State<ChatScreen> {
     super.initState();
     final fbm = FirebaseMessaging.instance;
     fbm.requestPermission();
+    FirebaseMessaging.onMessage.listen((event) {
+      if (kDebugMode) {
+        print(event);
+      }
+      return;
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((event) {
+      if (kDebugMode) {
+        print(event);
+      }
+    });
+    fbm.subscribeToTopic('chat');
   }
 
   @override
